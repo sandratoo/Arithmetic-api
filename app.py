@@ -14,17 +14,20 @@ class operation(Enum):
 
 class post_data(Resource):
     def post(self):
-     
         result = 0
+        
+        # Get input data
         data = request.get_json()
         operation_type = data.get("operation_type")
         x = data.get("x")
         y = data.get("y")
 
+        # List all the possible operator names from the json respond
         addition = ["addition","add","plus","join"]
         subtraction = ["subtraction","subtract","minus","difference"]
         multiplication = ["multiplication","multiply","times","product"]
 
+        # See if operator is in the string and it matches those in the list
         operation_type = operation_type.split(" ")
         flag_add = 0
         flag_sub = 0
@@ -43,6 +46,8 @@ class post_data(Resource):
                 if i==j:
                     flag_mul = 1
                     break
+
+        # Calculate result
         if flag_add == 1:
             result = x + y
             operation.value = "addition"
@@ -55,6 +60,7 @@ class post_data(Resource):
             result = x * y
             operation.value = "multiplication"
 
+        # Dict to be the response body
         result = {
             "slackUsername": "sandratoo", 
             "result": result, 
