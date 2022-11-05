@@ -78,7 +78,7 @@ class getall(Resource):
 
 
 api.add_resource(getall,"/")
-api.add_resource(post_data,"/post/")
+api.add_resource(post_data,"/")
 
 if __name__ == ("__main__"):
     app.run(debug=True)
