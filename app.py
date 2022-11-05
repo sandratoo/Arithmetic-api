@@ -54,9 +54,6 @@ class post_data(Resource):
             result = x * y
             operation.value = "multiplication"
 
-
-        
-
         result = {
             "slackUsername": "sandratoo", 
             "result": result, 
@@ -78,7 +75,7 @@ class getall(Resource):
 
 
 api.add_resource(getall,"/")
-api.add_resource(post_data,"/")
+api.add_resource(post_data,"/post")
 
 if __name__ == ("__main__"):
     app.run(debug=True)
