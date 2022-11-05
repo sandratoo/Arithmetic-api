@@ -14,6 +14,7 @@ class operation(Enum):
 
 class post_data(Resource):
     def post(self):
+     
         result = 0
         data = request.get_json()
         operation_type = data.get("operation_type")
